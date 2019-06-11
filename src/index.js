@@ -10,6 +10,10 @@ import App from './app'
 
 const store = createStore(reducers)
 
+store.subscribe(() => {
+  console.log(store.getState())
+})
+
 const render = Component => {
   ReactDOM.render(
     <Provider store={store}>
