@@ -14,8 +14,11 @@ const Form = ({ handleAddTodo }) => (
 const mapDispatchToProps = (dispatch) => ({
   handleAddTodo: (e) => {
     e.preventDefault()
-    dispatch(addTodo(e.target.todo.value))
-    e.target.todo.value = ''
+
+    if (e.target.todo.value !== '') {
+      dispatch(addTodo(e.target.todo.value))
+      e.target.todo.value = ''
+    }
   }
 })
 
