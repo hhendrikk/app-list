@@ -2,17 +2,12 @@
 
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 
-import reducers from 'reducers'
+import configureStore from './redux-flow/configure-store'
 import App from './app'
 
-const store = createStore(reducers)
-
-store.subscribe(() => {
-  console.log(store.getState())
-})
+const store = configureStore()
 
 const render = Component => {
   ReactDOM.render(
